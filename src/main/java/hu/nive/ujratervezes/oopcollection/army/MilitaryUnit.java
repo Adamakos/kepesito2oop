@@ -19,8 +19,8 @@ public abstract class MilitaryUnit {
     }
 
     public void sufferDamage(int damage) {
-        if (this.isShielded && (getLifePower() - damage < 0)) setLifePower(0);
-
+        if (this.isShielded) setLifePower(Math.max(getLifePower() - (damage / 2), 0));
+        else setLifePower(Math.max(getLifePower() - damage, 0));
     }
 
 
